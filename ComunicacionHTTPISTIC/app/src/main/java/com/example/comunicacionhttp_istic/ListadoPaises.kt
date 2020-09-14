@@ -1,6 +1,7 @@
 package com.example.comunicacionhttp_istic
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.StrictMode
@@ -41,11 +42,13 @@ class ListadoPaises : AppCompatActivity() {
         val adaptadorSimple=AdaptadorLsvSimple(this,arrayDeobjetosDePaises)
         lsvPaises.adapter=adaptadorSimple
 
+
+
       // val adaptador= ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,arrayDenombreDePaises)
        //lsvPaises.adapter=adaptador
 
 
-        
+
 
     }
 
