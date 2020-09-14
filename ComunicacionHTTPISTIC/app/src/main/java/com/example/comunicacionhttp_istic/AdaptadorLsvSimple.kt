@@ -32,6 +32,7 @@ class AdaptadorLsvSimple(var contexto:Context, listado:ArrayList<Pais>) :BaseAda
 
         holder?.nombre?.text=unPais.nombre
         holder?.region?.text=unPais.region
+        holder?.population?.text=unPais.population
 
         return vista!!
     }
@@ -53,9 +54,11 @@ class AdaptadorLsvSimple(var contexto:Context, listado:ArrayList<Pais>) :BaseAda
     private class ViewHolder(vista:View){
         var nombre :TextView?=null
         var region:TextView?=null
+        var population:TextView?=null
         init {
-            nombre=vista.findViewById(R.id.textView3)
-            region=vista.findViewById(R.id.txtBandera)
+            nombre=vista.findViewById(R.id.txtNombrePais)
+            region=vista.findViewById(R.id.txtRegion)
+            population=vista.findViewById(R.id.txtPoblacion)
         }
     }
 }

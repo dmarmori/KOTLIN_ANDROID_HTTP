@@ -45,22 +45,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
         btnConsultaSimple.setOnClickListener{
-            val datos=consultarDatos("https://api.mocki.io/v1/0b4979ea")
-           // http://jsonviewer.stack.hu/
-           /*
-           https://restcountries.eu/rest/v2/
-           https://restcountries.eu/rest/v2/region/europe
-           https://restcountries.eu/rest/v2/name/aruba?fullText=true*/
-            Log.d("ConsultaSimple" ,datos)
-
-            val datosArrayJson= JSONArray(datos)
-
-            for ( i in 0..datosArrayJson.length()-1)
-            {
-                var pais= datosArrayJson.getJSONObject(i)
-               // Log.d(pais.getString("name") ,pais.toString(0) )
-                Log.d("pais", pais.getString("first_name") )
-            }
 
         }
 
@@ -83,31 +67,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    @Throws(IOException::class)
-    private fun consultarDatos(url:String):String{
-        val policy=StrictMode.ThreadPolicy.Builder().permitAll().build()
-        StrictMode.setThreadPolicy(policy)
-        var datosDescargados: InputStream?=null
-        try{
-            val direccionWEB= URL(url)
-            val conexion=direccionWEB.openConnection() as HttpURLConnection
-            conexion.requestMethod="GET"
-            conexion.connect()
-            datosDescargados=conexion.inputStream
-            return datosDescargados.bufferedReader().use{
-                it.readText()
-            }
-        }catch (e:IOException)
-        {
-            Toast.makeText(this,"${e.message}",Toast.LENGTH_SHORT).show()
-        }
-        finally {
-            if(datosDescargados!=null)
-            {
-                datosDescargados.close()
-            }
-        }
-        return "NADA"
-    }
 }
